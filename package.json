@@ -16,8 +16,9 @@
     "format:check": "turbo run format:check",
     "registry-deps:check": "pnpm --filter=www registry-deps:check",
     "registry-deps:fix": "pnpm --filter=www registry-deps:fix",
+    "docs-props:check": "pnpm --filter=www docs-props:check",
     "build:registry": "pnpm --filter=www build:registry",
-    "check": "pnpm lint && pnpm typecheck && pnpm format:check && pnpm registry-deps:check"
+    "check": "pnpm lint && pnpm typecheck && pnpm format:check && pnpm registry-deps:check && pnpm docs-props:check"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",

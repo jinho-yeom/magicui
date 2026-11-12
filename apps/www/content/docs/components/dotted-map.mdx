@@ -97,20 +97,20 @@ const markers: MyMarker[] = [
 
 ## Props
 
-| Prop                  | Type                  | Default     | Description                                                    |
-| --------------------- | --------------------- | ----------- | -------------------------------------------------------------- |
-| `width`               | `number`              | `150`       | Width of the SVG map.                                          |
-| `height`              | `number`              | `75`        | Height of the SVG map.                                         |
-| `mapSamples`          | `number`              | `5000`      | Number of sample points for map generation.                    |
-| `markers`             | `Marker[]`            | `[]`        | Array of markers to display on the map.                        |
-| `dotColor`            | `string`              | `undefined` | Color of the map dots (uses currentColor if not set).          |
-| `markerColor`         | `string`              | `"#FF6900"` | Color of the markers.                                          |
-| `dotRadius`           | `number`              | `0.2`       | Radius of the map dots.                                        |
-| `stagger`             | `boolean`             | `true`      | Whether to stagger dots in alternating rows for visual effect. |
-| `pulse`               | `boolean`             | `false`     | Enables built-in pulse animation for markers.                  |
-| `renderMarkerOverlay` | `(args) => ReactNode` | `undefined` | Custom render function for marker overlays.                    |
-| `className`           | `string`              | `undefined` | Additional class names applied to the SVG.                     |
-| `style`               | `React.CSSProperties` | `undefined` | Inline styles merged into the SVG.                             |
+| Prop                  | Type                  | Default          | Description                                                    |
+| --------------------- | --------------------- | ---------------- | -------------------------------------------------------------- |
+| `width`               | `number`              | `150`            | Width of the SVG map.                                          |
+| `height`              | `number`              | `75`             | Height of the SVG map.                                         |
+| `mapSamples`          | `number`              | `5000`           | Number of sample points for map generation.                    |
+| `markers`             | `Marker[]`            | `[]`             | Array of markers to display on the map.                        |
+| `dotColor`            | `string`              | `"currentColor"` | Color of the map dots (uses currentColor if not set).          |
+| `markerColor`         | `string`              | `"#FF6900"`      | Color of the markers.                                          |
+| `dotRadius`           | `number`              | `0.2`            | Radius of the map dots.                                        |
+| `stagger`             | `boolean`             | `true`           | Whether to stagger dots in alternating rows for visual effect. |
+| `pulse`               | `boolean`             | `false`          | Enables built-in pulse animation for markers.                  |
+| `renderMarkerOverlay` | `(args) => ReactNode` | `undefined`      | Custom render function for marker overlays.                    |
+| `className`           | `string`              | `undefined`      | Additional class names applied to the SVG.                     |
+| `style`               | `React.CSSProperties` | `undefined`      | Inline styles merged into the SVG.                             |
 
 ## Types
 

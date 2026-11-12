@@ -9,6 +9,7 @@
     "dev": "next dev",
     "registry-deps:check": "npx tsx ./scripts/sync-example-registry-dependencies.mts --check",
     "registry-deps:fix": "npx tsx ./scripts/sync-example-registry-dependencies.mts --fix",
+    "docs-props:check": "npx tsx ./scripts/check-docs-props.mts",
     "prebuild": "pnpm build:registry",
     "build": "next build",
     "build:registry": "npx tsx ./scripts/build-registry.mts && prettier --log-level silent --write \"registry/**/*.{ts,tsx,mdx}\" --cache",
@@ -19,7 +20,7 @@
     "lint:fix": "eslint --fix .",
     "format:fix": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
-    "check": "pnpm lint && pnpm typecheck && pnpm format:check && pnpm registry-deps:check"
+    "check": "pnpm lint && pnpm typecheck && pnpm format:check && pnpm registry-deps:check && pnpm docs-props:check"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",

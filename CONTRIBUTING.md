@@ -274,7 +274,7 @@ Running the checks below locally first saves you a round trip with CI:
    pnpm check
    ```
 
-   This runs `lint`, `typecheck`, `format:check`, and `registry-deps:check` — four of the six CI gates. Most issues can be auto-fixed:
+   This runs `lint`, `typecheck`, `format:check`, `registry-deps:check`, and `docs-props:check` — five of the seven CI gates. Most issues can be auto-fixed:
 
    ```bash
    pnpm lint:fix
@@ -283,6 +283,8 @@ Running the checks below locally first saves you a round trip with CI:
    ```
 
    Note: `registry-deps:fix` updates `registry/registry-examples.ts`, so run `pnpm build:registry` afterwards to regenerate the artifacts.
+
+   `docs-props:check` fails when the Default column of a component's Props table (`content/docs/components/<name>.mdx`) differs from the default in `registry/magicui/<name>.tsx`. Fix it by updating the table.
 
 2. **Build the registry and commit the generated files** (see "6. Build registry" above) if you changed anything under `registry/` or `config/site.ts`.
 
@@ -299,7 +301,7 @@ Running the checks below locally first saves you a round trip with CI:
    Commit messages are validated by [commitlint](https://commitlint.js.org/) (e.g., `feat(marquee): add reverse prop`, `fix(globe): prevent crash on resize`). Use the same format for your PR title.
 
 > [!NOTE]
-> Git hooks (installed automatically with `pnpm i` via lefthook) run lint/format fixes on staged files and regenerate registry artifacts when you commit files under `registry/`, plus `typecheck` on push. They do not cover `registry-deps:check`, the production build, or a `config/site.ts`-only change — run `pnpm build:registry` yourself in that case.
+> Git hooks (installed automatically with `pnpm i` via lefthook) run lint/format fixes on staged files and regenerate registry artifacts when you commit files under `registry/`, plus `typecheck` on push. They do not cover `registry-deps:check`, `docs-props:check`, the production build, or a `config/site.ts`-only change — run `pnpm build:registry` yourself in that case.
 
 ## Ask for Help
 

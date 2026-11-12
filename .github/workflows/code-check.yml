@@ -170,6 +170,47 @@ jobs:
             exit 1
           }
 
+  docs-props:
+    runs-on: ubuntu-latest
+    name: pnpm docs-props:check
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 9.15.0
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "pnpm_cache_dir=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: pnpm docs-props:check
+        run: |
+          pnpm docs-props:check || {
+            echo "::error::A docs Props table lists a default that differs from the component source. Update the Default column in content/docs/components to match registry/magicui."
+            exit 1
+          }
+
   build:
     runs-on: ubuntu-latest
     name: pnpm build
